@@ -4,32 +4,6 @@
   
     
     <entry>
-      <title>jsapi</title>
-      <link href="/2022/11/23/jsapi/"/>
-      <url>/2022/11/23/jsapi/</url>
-      
-        <content type="html"><![CDATA[<h2 id="jsapi"><a href="#jsapi" class="headerlink" title="jsapi"></a>jsapi</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>js基础</title>
-      <link href="/2022/11/23/js%E5%9F%BA%E7%A1%80/"/>
-      <url>/2022/11/23/js%E5%9F%BA%E7%A1%80/</url>
-      
-        <content type="html"><![CDATA[<h2 id="js基础"><a href="#js基础" class="headerlink" title="js基础"></a>js基础</h2>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Ajax</title>
       <link href="/2022/11/23/Ajax/"/>
       <url>/2022/11/23/Ajax/</url>
@@ -37,6 +11,43 @@
         <content type="html"><![CDATA[<h2 id="Aajx"><a href="#Aajx" class="headerlink" title="Aajx"></a>Aajx</h2>]]></content>
       
       
+      <categories>
+          
+          <category> -Ajax </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -ajax </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>jsapi</title>
+      <link href="/2022/11/23/jsapi/"/>
+      <url>/2022/11/23/jsapi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="jsapi"><a href="#jsapi" class="headerlink" title="jsapi"></a>jsapi</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> -js内容 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -jsapi </tag>
+            
+        </tags>
       
     </entry>
     
@@ -50,6 +61,18 @@
         <content type="html"><![CDATA[<h2 id="js高级"><a href="#js高级" class="headerlink" title="js高级"></a>js高级</h2>]]></content>
       
       
+      <categories>
+          
+          <category> -js内容 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -jsa高级 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -63,6 +86,43 @@
         <content type="html"><![CDATA[<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2>]]></content>
       
       
+      <categories>
+          
+          <category> -nodejs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -node.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js基础</title>
+      <link href="/2022/11/23/js%E5%9F%BA%E7%A1%80/"/>
+      <url>/2022/11/23/js%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="js基础"><a href="#js基础" class="headerlink" title="js基础"></a>js基础</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> -js内容 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -js基础 </tag>
+            
+        </tags>
       
     </entry>
     
