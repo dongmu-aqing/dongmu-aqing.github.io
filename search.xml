@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>前端面试题</title>
+      <link href="/2022/11/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
+      <url>/2022/11/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h2 id="闭包是什么"><a href="#闭包是什么" class="headerlink" title="闭包是什么"></a>闭包是什么</h2><p>两个函数（a,b）嵌套，内层函数b 调用了外层函数a中声明的变量，就叫闭包</p><h2 id="数组中的forEach和map："><a href="#数组中的forEach和map：" class="headerlink" title="数组中的forEach和map："></a>数组中的forEach和map：</h2><p>相同点：都是遍历数组每一项，都有三个参数，都不改变原数组<br>不同点：forEach是将一个数组中的每一项作为回调函数来处理，map则返回一个新数组，数组中的元素是原数组的方法处理后的值</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> -前端面试题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -前端面试题 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Ajax</title>
       <link href="/2022/11/23/Ajax/"/>
       <url>/2022/11/23/Ajax/</url>
@@ -54,31 +79,6 @@
     
     
     <entry>
-      <title>nodejs</title>
-      <link href="/2022/11/23/nodejs/"/>
-      <url>/2022/11/23/nodejs/</url>
-      
-        <content type="html"><![CDATA[<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> -nodejs </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> -node.js </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>js高级</title>
       <link href="/2022/11/23/js%E9%AB%98%E7%BA%A7/"/>
       <url>/2022/11/23/js%E9%AB%98%E7%BA%A7/</url>
@@ -121,6 +121,31 @@
         <tags>
             
             <tag> -js基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>nodejs</title>
+      <link href="/2022/11/23/nodejs/"/>
+      <url>/2022/11/23/nodejs/</url>
+      
+        <content type="html"><![CDATA[<h2 id="nodejs"><a href="#nodejs" class="headerlink" title="nodejs"></a>nodejs</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> -nodejs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -node.js </tag>
             
         </tags>
       
