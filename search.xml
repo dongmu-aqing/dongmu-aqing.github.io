@@ -8,7 +8,7 @@
       <link href="/2022/11/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/"/>
       <url>/2022/11/24/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="1，闭包是什么"><a href="#1，闭包是什么" class="headerlink" title="1，闭包是什么"></a>1，闭包是什么</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">两个函数（a,b）嵌套，内层函数b 调用了外层函数a中声明的变量，就叫闭包</span><br></pre></td></tr></table></figure><h2 id="2，数组中的forEach和map："><a href="#2，数组中的forEach和map：" class="headerlink" title="2，数组中的forEach和map："></a>2，数组中的forEach和map：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">相同点：都是遍历数组每一项，都有三个参数，都不改变原数组</span><br><span class="line">不同点：forEach是将一个数组中的每一项作为回调函数来处理，</span><br><span class="line">map则返回一个新数组，数组中的元素是原数组的方法处理后的值</span><br></pre></td></tr></table></figure><h2 id="3，浅拷贝和深拷贝"><a href="#3，浅拷贝和深拷贝" class="headerlink" title="3，浅拷贝和深拷贝"></a>3，浅拷贝和深拷贝</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">浅拷贝：</span><br><span class="line">    基本数据类型：拷贝值，原来的和拷贝的互不影响</span><br><span class="line">    引用数据类型：拷贝地址，一改变原来的和拷贝的都改变，可以用展开运算符进行浅拷贝</span><br><span class="line"></span><br><span class="line">深拷贝：</span><br><span class="line">    引用数据类型：</span><br><span class="line">    内存中开辟新地址，堆中的内容完整拷贝一份到新地址中，修改一个另一个并不受影响</span><br><span class="line">    可以用递归的方式进行深拷贝</span><br></pre></td></tr></table></figure><h2 id="4，防抖和节流"><a href="#4，防抖和节流" class="headerlink" title="4，防抖和节流"></a>4，防抖和节流</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">防抖：连续触发事件，但是在设定的一段时间内只执行最后一次函数</span><br><span class="line">    记忆核心：从 新 开始</span><br><span class="line">    应用场景：文本编辑器和搜索框</span><br><span class="line">    代码实现思路主要靠定时器:</span><br><span class="line"></span><br><span class="line">   let tid=null</span><br><span class="line">    document.querySelector(&#x27;获取要操作的元素&#x27;).addEventListener(&#x27;keyup&#x27;,function()&#123;</span><br><span class="line">        if (tid!==null) &#123;</span><br><span class="line">            clearTimeout(tid)</span><br><span class="line">        &#125;</span><br><span class="line">        tid=setTimeout(()=&gt;&#123;</span><br><span class="line">            console.log(&#x27;防抖&#x27;);</span><br><span class="line">        &#125;,1000)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">节流：连续触发事件但是在设定的一段时间内只执行一次函数</span><br><span class="line">    记忆核心： 不要打断我</span><br><span class="line">    应用场景：</span><br><span class="line">    1，高频事件：快速点击，鼠标滑动，resize事件，scroll事件</span><br><span class="line">    2，下拉加载</span><br><span class="line">    3，视频播放记录时间等</span><br><span class="line"></span><br><span class="line">    `let tid=null</span><br><span class="line">    document.querySelector(&#x27;获取要操作的元素&#x27;).addEventListener(&#x27;keyup&#x27;,function()&#123;</span><br><span class="line">        if (tid!==null) &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        tid=setTimeout(()=&gt;&#123;</span><br><span class="line">            console.log(&#x27;防抖&#x27;);</span><br><span class="line">            tid=null</span><br><span class="line">        &#125;,1000)</span><br><span class="line">    &#125;)`</span><br><span class="line">开发一般用lodash库，利用里面的debounce（防抖）和throttle（节流）来做</span><br></pre></td></tr></table></figure><h2 id="5，原型和原型链"><a href="#5，原型和原型链" class="headerlink" title="5，原型和原型链"></a>5，原型和原型链</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">原型：</span><br><span class="line">    所有的引用类型都有一个__proto__属性，所有的函数都有一个prototype属性</span><br><span class="line">    所有引用类型的__proto__都指向它构造函数的prototype</span><br><span class="line">原型链：</span><br><span class="line">    当访问一个对象的某个属性的时候，先在对象本身查找，</span><br><span class="line">    如果没有，就去他的__proto__属性上找，</span><br><span class="line">    如果还没有，就去__proto__所指向的构造函数的prototype找，</span><br><span class="line">    还没有就去Object上找，最顶为null，这样的一个链式结构，就叫做原型链</span><br></pre></td></tr></table></figure><h2 id="6，thie指向问题"><a href="#6，thie指向问题" class="headerlink" title="6，thie指向问题"></a>6，thie指向问题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">函数调用指向window</span><br><span class="line">方法调用指向对象</span><br><span class="line">构造函数调用指向它的实例对象</span><br><span class="line">箭头函数则看外层有没有函数，有的话和外层函数指向一样，没有指向window</span><br></pre></td></tr></table></figure><h2 id="7，call，bind，apply"><a href="#7，call，bind，apply" class="headerlink" title="7，call，bind，apply"></a>7，call，bind，apply</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">都是用来改变this指向</span><br><span class="line">第一个参数都是this的新指向</span><br><span class="line">第二个及之后的参数call和bind是直接传入函数值，apply第二个参数则是数组或伪数组</span><br><span class="line">bind方法不会直接执行函数，其他两个会主动执行函数</span><br></pre></td></tr></table></figure><h2 id="8，回流和重绘的说明"><a href="#8，回流和重绘的说明" class="headerlink" title="8，回流和重绘的说明"></a>8，回流和重绘的说明</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">回流:</span><br><span class="line">    访问页面的时候浏览器会解析HTML代码并构建DOM树，</span><br><span class="line">    然后根据DOM节点进行几何布局生成渲染树，渲染树构建完成后，页面根据DOM节点进行几何布局</span><br><span class="line">    渲染树也根据设置的样式渲染这些节点，在这过程中我们删除节点，修改一个元素的宽高，页面布局会发生变化，DOM树就会重新构建</span><br><span class="line">    渲染树和DOM树紧密相连，渲染树也会重新渲染，这个过程称为回流或自动重排</span><br><span class="line">重绘：</span><br><span class="line">    由于节点的几何属性发生改变或者由样式发生改变而不影响布局的，叫做重绘</span><br><span class="line">    个人简单理解：页面布局发生变化，会引起回流，修改元素样式不改变布局，会引起重绘</span><br><span class="line">    注意： 回流一定触发重绘，重绘不一定触发回流</span><br></pre></td></tr></table></figure><h2 id="9，new关键字做了哪些事"><a href="#9，new关键字做了哪些事" class="headerlink" title="9，new关键字做了哪些事"></a>9，new关键字做了哪些事</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1，new一个空对象</span><br><span class="line">2，将函数的this指向这个空对象</span><br><span class="line">3，为新创建的对象添加__proto__,指向构造函数的原型对象</span><br><span class="line">4，如果函数返回对象，就把这个对象作为返回值，如果没有返回对象就返回this</span><br></pre></td></tr></table></figure><h2 id="10，async和await的理解"><a href="#10，async和await的理解" class="headerlink" title="10，async和await的理解"></a>10，async和await的理解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1，是异步代码的新方式</span><br><span class="line">2，基于promise实现</span><br><span class="line">3，使异步代码更像同步代码</span><br><span class="line">4，await只能在async中使用，不能在普通函数中使用，成对出现</span><br><span class="line">5，默认返回一个promise实例，不能改变</span><br><span class="line">6，await下面的代码是异步，后面的代码是同步的</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h2 id="1，闭包是什么"><a href="#1，闭包是什么" class="headerlink" title="1，闭包是什么"></a>1，闭包是什么</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">两个函数（a,b）嵌套，内层函数b 调用了外层函数a中声明的变量，就叫闭包</span><br></pre></td></tr></table></figure><h2 id="2，数组中的forEach和map："><a href="#2，数组中的forEach和map：" class="headerlink" title="2，数组中的forEach和map："></a>2，数组中的forEach和map：</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">相同点：都是遍历数组每一项，都有三个参数，都不改变原数组</span><br><span class="line">不同点：forEach是将一个数组中的每一项作为回调函数来处理，</span><br><span class="line">map则返回一个新数组，数组中的元素是原数组的方法处理后的值</span><br></pre></td></tr></table></figure><h2 id="3，浅拷贝和深拷贝"><a href="#3，浅拷贝和深拷贝" class="headerlink" title="3，浅拷贝和深拷贝"></a>3，浅拷贝和深拷贝</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">浅拷贝：</span><br><span class="line">    基本数据类型：拷贝值，原来的和拷贝的互不影响</span><br><span class="line">    引用数据类型：拷贝地址，一改变原来的和拷贝的都改变，可以用展开运算符进行浅拷贝</span><br><span class="line"></span><br><span class="line">深拷贝：</span><br><span class="line">    引用数据类型：</span><br><span class="line">    内存中开辟新地址，堆中的内容完整拷贝一份到新地址中，修改一个另一个并不受影响</span><br><span class="line">    可以用递归的方式进行深拷贝</span><br></pre></td></tr></table></figure><h2 id="4，防抖和节流"><a href="#4，防抖和节流" class="headerlink" title="4，防抖和节流"></a>4，防抖和节流</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">防抖：连续触发事件，但是在设定的一段时间内只执行最后一次函数</span><br><span class="line">    记忆核心：从 新 开始</span><br><span class="line">    应用场景：文本编辑器和搜索框</span><br><span class="line">    代码实现思路主要靠定时器:</span><br><span class="line"></span><br><span class="line">   let tid=null</span><br><span class="line">    document.querySelector(&#x27;获取要操作的元素&#x27;).addEventListener(&#x27;keyup&#x27;,function()&#123;</span><br><span class="line">        if (tid!==null) &#123;</span><br><span class="line">            clearTimeout(tid)</span><br><span class="line">        &#125;</span><br><span class="line">        tid=setTimeout(()=&gt;&#123;</span><br><span class="line">            console.log(&#x27;防抖&#x27;);</span><br><span class="line">        &#125;,1000)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">节流：连续触发事件但是在设定的一段时间内只执行一次函数</span><br><span class="line">    记忆核心： 不要打断我</span><br><span class="line">    应用场景：</span><br><span class="line">    1，高频事件：快速点击，鼠标滑动，resize事件，scroll事件</span><br><span class="line">    2，下拉加载</span><br><span class="line">    3，视频播放记录时间等</span><br><span class="line"></span><br><span class="line">    let tid=null</span><br><span class="line">    document.querySelector(&#x27;获取要操作的元素&#x27;).addEventListener(&#x27;keyup&#x27;,function()&#123;</span><br><span class="line">        if (tid!==null) &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        tid=setTimeout(()=&gt;&#123;</span><br><span class="line">            console.log(&#x27;防抖&#x27;);</span><br><span class="line">            tid=null</span><br><span class="line">        &#125;,1000)</span><br><span class="line">    &#125;)</span><br><span class="line">开发一般用lodash库，利用里面的debounce（防抖）和throttle（节流）来做</span><br></pre></td></tr></table></figure><h2 id="5，原型和原型链"><a href="#5，原型和原型链" class="headerlink" title="5，原型和原型链"></a>5，原型和原型链</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">原型：</span><br><span class="line">    所有的引用类型都有一个__proto__属性，所有的函数都有一个prototype属性</span><br><span class="line">    所有引用类型的__proto__都指向它构造函数的prototype</span><br><span class="line">原型链：</span><br><span class="line">    当访问一个对象的某个属性的时候，先在对象本身查找，</span><br><span class="line">    如果没有，就去他的__proto__属性上找，</span><br><span class="line">    如果还没有，就去__proto__所指向的构造函数的prototype找，</span><br><span class="line">    还没有就去Object上找，最顶为null，这样的一个链式结构，就叫做原型链</span><br></pre></td></tr></table></figure><h2 id="6，thie指向问题"><a href="#6，thie指向问题" class="headerlink" title="6，thie指向问题"></a>6，thie指向问题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">函数调用指向window</span><br><span class="line">方法调用指向对象</span><br><span class="line">构造函数调用指向它的实例对象</span><br><span class="line">箭头函数则看外层有没有函数，有的话和外层函数指向一样，没有指向window</span><br></pre></td></tr></table></figure><h2 id="7，call，bind，apply"><a href="#7，call，bind，apply" class="headerlink" title="7，call，bind，apply"></a>7，call，bind，apply</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">都是用来改变this指向</span><br><span class="line">第一个参数都是this的新指向</span><br><span class="line">第二个及之后的参数call和bind是直接传入函数值，apply第二个参数则是数组或伪数组</span><br><span class="line">bind方法不会直接执行函数，其他两个会主动执行函数</span><br></pre></td></tr></table></figure><h2 id="8，回流和重绘的说明"><a href="#8，回流和重绘的说明" class="headerlink" title="8，回流和重绘的说明"></a>8，回流和重绘的说明</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">回流:</span><br><span class="line">    访问页面的时候浏览器会解析HTML代码并构建DOM树，</span><br><span class="line">    然后根据DOM节点进行几何布局生成渲染树，渲染树构建完成后，页面根据DOM节点进行几何布局</span><br><span class="line">    渲染树也根据设置的样式渲染这些节点，在这过程中我们删除节点，修改一个元素的宽高，页面布局会发生变化，DOM树就会重新构建</span><br><span class="line">    渲染树和DOM树紧密相连，渲染树也会重新渲染，这个过程称为回流或自动重排</span><br><span class="line">重绘：</span><br><span class="line">    由于节点的几何属性发生改变或者由样式发生改变而不影响布局的，叫做重绘</span><br><span class="line">    个人简单理解：页面布局发生变化，会引起回流，修改元素样式不改变布局，会引起重绘</span><br><span class="line">    注意： 回流一定触发重绘，重绘不一定触发回流</span><br></pre></td></tr></table></figure><h2 id="9，new关键字做了哪些事"><a href="#9，new关键字做了哪些事" class="headerlink" title="9，new关键字做了哪些事"></a>9，new关键字做了哪些事</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1，new一个空对象</span><br><span class="line">2，将函数的this指向这个空对象</span><br><span class="line">3，为新创建的对象添加__proto__,指向构造函数的原型对象</span><br><span class="line">4，如果函数返回对象，就把这个对象作为返回值，如果没有返回对象就返回this</span><br></pre></td></tr></table></figure><h2 id="10，async和await的理解"><a href="#10，async和await的理解" class="headerlink" title="10，async和await的理解"></a>10，async和await的理解</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1，是异步代码的新方式</span><br><span class="line">2，基于promise实现</span><br><span class="line">3，使异步代码更像同步代码</span><br><span class="line">4，await只能在async中使用，不能在普通函数中使用，成对出现</span><br><span class="line">5，默认返回一个promise实例，不能改变</span><br><span class="line">6，await下面的代码是异步，后面的代码是同步的</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -21,56 +21,6 @@
         <tags>
             
             <tag> -前端面试题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>js高级</title>
-      <link href="/2022/11/23/js%E9%AB%98%E7%BA%A7/"/>
-      <url>/2022/11/23/js%E9%AB%98%E7%BA%A7/</url>
-      
-        <content type="html"><![CDATA[<h2 id="js高级"><a href="#js高级" class="headerlink" title="js高级"></a>js高级</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> -js内容 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> -jsa高级 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>jsapi</title>
-      <link href="/2022/11/23/jsapi/"/>
-      <url>/2022/11/23/jsapi/</url>
-      
-        <content type="html"><![CDATA[<h2 id="jsapi"><a href="#jsapi" class="headerlink" title="jsapi"></a>jsapi</h2>]]></content>
-      
-      
-      <categories>
-          
-          <category> -js内容 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> -jsapi </tag>
             
         </tags>
       
@@ -104,11 +54,11 @@
     
     
     <entry>
-      <title>js基础</title>
-      <link href="/2022/11/23/js%E5%9F%BA%E7%A1%80/"/>
-      <url>/2022/11/23/js%E5%9F%BA%E7%A1%80/</url>
+      <title>js高级</title>
+      <link href="/2022/11/23/js%E9%AB%98%E7%BA%A7/"/>
+      <url>/2022/11/23/js%E9%AB%98%E7%BA%A7/</url>
       
-        <content type="html"><![CDATA[<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="js高级"><a href="#js高级" class="headerlink" title="js高级"></a>js高级</h2>]]></content>
       
       
       <categories>
@@ -120,7 +70,7 @@
       
         <tags>
             
-            <tag> -js基础 </tag>
+            <tag> -jsa高级 </tag>
             
         </tags>
       
@@ -146,6 +96,56 @@
         <tags>
             
             <tag> -node.js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js基础</title>
+      <link href="/2022/11/23/js%E5%9F%BA%E7%A1%80/"/>
+      <url>/2022/11/23/js%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> -js内容 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -js基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>jsapi</title>
+      <link href="/2022/11/23/jsapi/"/>
+      <url>/2022/11/23/jsapi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="jsapi"><a href="#jsapi" class="headerlink" title="jsapi"></a>jsapi</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> -js内容 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -jsapi </tag>
             
         </tags>
       
